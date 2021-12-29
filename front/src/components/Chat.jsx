@@ -23,9 +23,9 @@ export default function Chat() {
 			socket.current.on('getUsers', (USERS) => {
 				setUsers(USERS);
 			});
-		});
-		socket.current.on('receiveMessage', (message) => {
-			setMessages((allMessages) => [...allMessages, message]);
+			socket.current.on('receiveMessage', (message) => {
+				setMessages((allMessages) => [...allMessages, message]);
+			});
 		});
 	}, []);
 
@@ -34,7 +34,6 @@ export default function Chat() {
 			return;
 		}
 		socket.current.emit('sendMessage', input.current.value);
-		setMessages([...messages, input.current.value]);
 	};
 
 	return (
@@ -53,7 +52,7 @@ export default function Chat() {
 						<Message message={msg} />
 					))}
 				</div>
-				<InputGroup className="mb-3" size="lg">
+				<InputGroup className="mb-0" size="lg">
 					<FormControl ref={input} placeholder="Write you message here" />
 					<Button variant="outline-primary" id="button-addon" onClick={sendMessage}>
 						Send
