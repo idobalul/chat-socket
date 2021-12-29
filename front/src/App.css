@@ -6,7 +6,6 @@
 
 .left {
 	width: 15vw;
-	height: 87.5vh;
 	margin-right: 5vw;
 	margin-left: 5vw;
 	padding: 7px;
@@ -25,7 +24,7 @@
 
 .right {
 	width: 60vw;
-	font-size: 1.5vw;
+	font-size: 1vw;
 }
 
 .messages {

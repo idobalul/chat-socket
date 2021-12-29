@@ -20,16 +20,19 @@ const io = new Server(httpServer);
 
 io.on('connection', (socket) => {
 	console.log(socket.id);
+	const { name } = socket.handshake.query;
+
 	io.emit('getUsers', getUsers());
+	socket.broadcast.emit('receiveMessage', `${name} has joined the chat`);
 
 	socket.on('sendMessage', (message) => {
-		socket.broadcast.emit('receiveMessage', message);
+		io.emit('receiveMessage', `${name}: ${message}`);
 	});
 
 	socket.on('disconnect', () => {
-		const { name } = socket.handshake.query;
 		removeUser(name);
 		io.emit('getUsers', getUsers());
+		socket.broadcast.emit('receiveMessage', `${name} has left the chat`);
 	});
 });
 
