@@ -12,3 +12,10 @@ exports.login = (req, res) => {
 
 	res.status(201).send({ message: `welcome ${username}!` });
 };
+
+exports.getUsers = () => USERS;
+
+exports.removeUser = (name) => {
+	const index = USERS.indexOf(name);
+	USERS.splice(index, 1);
+};

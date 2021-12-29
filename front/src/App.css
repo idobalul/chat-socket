@@ -1,0 +1,40 @@
+#chat-page {
+	margin-top: 40px;
+	display: flex;
+	justify-content: flex-start;
+}
+
+.left {
+	width: 15vw;
+	height: 87.5vh;
+	margin-right: 5vw;
+	margin-left: 5vw;
+	padding: 7px;
+	font-size: 1.5vw;
+	overflow-y: hidden;
+	border: 1px solid #000000;
+}
+
+.left::-webkit-scrollbar {
+	display: none;
+}
+
+.left span {
+	font-size: 1vw;
+}
+
+.right {
+	width: 60vw;
+	font-size: 1.5vw;
+}
+
+.messages {
+	height: 80vh;
+	overflow-y: hidden;
+	border: 1px solid #000000;
+	padding-left: 5px;
+}
+
+.messages::-webkit-scrollbar {
+	display: none;
+}
