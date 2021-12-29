@@ -1,23 +1,24 @@
 {
-  "name": "back",
-  "version": "1.0.0",
-  "description": "server side",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "ido balul",
-  "license": "ISC",
-  "devDependencies": {
-    "eslint": "^8.5.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-import": "^2.25.3",
-    "nodemon": "^2.0.15"
-  },
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.17.2",
-    "socket.io": "^4.4.0"
-  }
+	"name": "back",
+	"version": "1.0.0",
+	"description": "server side",
+	"main": "index.js",
+	"scripts": {
+		"start": "node index.js",
+		"dev": "nodemon index.js"
+	},
+	"author": "ido balul",
+	"license": "ISC",
+	"devDependencies": {
+		"eslint": "^8.5.0",
+		"eslint-config-airbnb-base": "^15.0.0",
+		"eslint-config-prettier": "^8.3.0",
+		"eslint-plugin-import": "^2.25.3",
+		"nodemon": "^2.0.15"
+	},
+	"dependencies": {
+		"cors": "^2.8.5",
+		"express": "^4.17.2",
+		"socket.io": "^4.4.0"
+	}
 }
