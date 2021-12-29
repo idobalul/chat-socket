@@ -34,6 +34,7 @@ export default function Chat() {
 			return;
 		}
 		socket.current.emit('sendMessage', input.current.value);
+		input.current.value = '';
 	};
 
 	return (
@@ -53,7 +54,15 @@ export default function Chat() {
 					))}
 				</div>
 				<InputGroup className="mb-0" size="lg">
-					<FormControl ref={input} placeholder="Write you message here" />
+					<FormControl
+						ref={input}
+						placeholder="Write you message here"
+						onKeyDown={(event) => {
+							if (event.key === 'Enter') {
+								sendMessage();
+							}
+						}}
+					/>
 					<Button variant="outline-primary" id="button-addon" onClick={sendMessage}>
 						Send
 					</Button>
