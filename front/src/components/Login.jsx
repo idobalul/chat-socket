@@ -29,7 +29,7 @@ export default function Login() {
 
 	return (
 		<div className="login-page">
-			<InputGroup className="mb-3">
+			<InputGroup className="mb-3" size="lg">
 				<InputGroup.Text>Username</InputGroup.Text>
 				<FormControl
 					ref={usernameInput}
@@ -37,7 +37,7 @@ export default function Login() {
 					placeholder="Username must be at least 2 characters long"
 				/>
 			</InputGroup>
-			<Button variant="primary" className="login-button" onClick={login}>
+			<Button variant="primary" className="login-button" onClick={login} size="lg">
 				Log In
 			</Button>
 		</div>

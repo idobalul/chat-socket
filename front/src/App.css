@@ -55,3 +55,14 @@
 .PM section {
 	color: #faca7d;
 }
+
+/*************
+* Login page *
+**************/
+
+.login-page {
+	width: 60vw;
+	margin-left: 50%;
+	transform: translate(-50%);
+	margin-top: 30vh;
+}
