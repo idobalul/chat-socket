@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const { createServer } = require('http');
 const { Server } = require('socket.io');
 const { getUsers, removeUser, assignSocket, getUserSocket } = require('./controllers/main');
@@ -12,8 +13,13 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
+app.use(express.static('./build'));
 
 app.use('/login', loginRouter);
+
+app.get('/', (req, res) => {
+	res.sendFile(path.resolve('build/index.html'));
+});
 
 const httpServer = createServer(app);
 const io = new Server(httpServer);
