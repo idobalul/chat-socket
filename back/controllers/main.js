@@ -3,6 +3,11 @@ const USERS = {};
 exports.login = (req, res) => {
 	const { username } = req.body;
 
+	if (username.length < 2) {
+		res.status(400).send({ message: 'username must be at least 2 characters long' });
+		return;
+	}
+
 	const isExist = Object.prototype.hasOwnProperty.call(USERS, username);
 
 	if (isExist) {

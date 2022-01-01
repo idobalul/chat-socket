@@ -2,6 +2,22 @@ import React, { useRef } from 'react';
 import axios from 'axios';
 import { InputGroup, FormControl, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { Notyf } from 'notyf';
+
+const notyf = new Notyf({
+	duration: 4000,
+	position: {
+		x: 'right',
+		y: 'top',
+	},
+	types: [
+		{
+			type: 'error',
+			background: 'indianred',
+			dismissible: true,
+		},
+	],
+});
 
 export default function Login() {
 	const navigate = useNavigate();
@@ -23,7 +39,7 @@ export default function Login() {
 				navigate('/chat', { replace: true, state: { username: usernameInput.current.value } });
 			}
 		} catch (error) {
-			console.log(error);
+			notyf.error(error.response.data.message);
 		}
 	};
 

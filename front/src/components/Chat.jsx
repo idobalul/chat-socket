@@ -2,9 +2,25 @@ import React, { useEffect, useRef, useState } from 'react';
 import { io } from 'socket.io-client';
 import { useLocation } from 'react-router-dom';
 import { ListGroup, InputGroup, FormControl, Button } from 'react-bootstrap';
+import { Notyf } from 'notyf';
 
 import Message from './Message';
 import PM from './PM';
+
+const notyf = new Notyf({
+	duration: 4000,
+	position: {
+		x: 'right',
+		y: 'top',
+	},
+	types: [
+		{
+			type: 'success',
+			background: 'green',
+			dismissible: true,
+		},
+	],
+});
 
 export default function Chat() {
 	const location = useLocation();
@@ -17,6 +33,7 @@ export default function Chat() {
 	const [to, setTo] = useState('all');
 
 	useEffect(() => {
+		notyf.success(`Welcome ${username}`);
 		socket.current = io('http://localhost:8080', {
 			transports: ['websocket'],
 			query: { name: username },
@@ -48,7 +65,9 @@ export default function Chat() {
 		const message = input.current.value;
 		if (to !== 'all') {
 			socket.current.emit('private', { to, message });
-			setMessages((allMessages) => [...allMessages, { to, message }]);
+			if (to !== username) {
+				setMessages((allMessages) => [...allMessages, { to, message }]);
+			}
 		} else {
 			socket.current.emit('sendMessage', input.current.value);
 		}
