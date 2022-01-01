@@ -1,0 +1,9 @@
+version: '3.9'
+
+services:
+  app:
+    image: chat-app:latest
+    build: ./back
+    ports:
+      - '8080:8080'
+    
