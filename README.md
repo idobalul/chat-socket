@@ -65,7 +65,7 @@ Lastly, if a user leaves the chat it will also tell everyone that that user left
     docker run -d -p 8080:8080 chat-app
    ``` 
 3. Now you can use the app on http://localhost:8080
-4. If you want to use docker compose you can shut down and remove the container from the previous steps (only th container, NOT the image)
+4. If you want to use docker compose you can shut down and remove the container from the previous steps (only the container, NOT the image)
 5. In the terminal:
     ```bash
     docker-compose up
